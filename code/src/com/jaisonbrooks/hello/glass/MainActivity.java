@@ -1,5 +1,5 @@
 /**
- * Hello Glass - Sample application
+ * HelloGlass - a sample to Google Glass Development
  * @author Jaison Brooks
  */
 package com.jaisonbrooks.hello.glass;

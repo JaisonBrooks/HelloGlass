@@ -1,5 +1,5 @@
 /**
- * Hello Glass - Sample application
+ * HelloGlass - a sample to Google Glass Development
  * @author Jaison Brooks
  */
 package com.jaisonbrooks.hello.glass;
@@ -34,6 +34,7 @@ public class MainService extends Service {
 	@Override
     public void onCreate() {
         super.onCreate();
+        	//Get string, Initiate Timeline, setup Txt2Speech listener
         	INTRO = getResources().getString(R.string.app_activity_body);
 	        mTimelineManager = TimelineManager.from(this);
 	        mSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -52,6 +53,8 @@ public class MainService extends Service {
             mLiveCard = mTimelineManager.createLiveCard(LIVE_CARD_ID);
             aRV.setTextViewText(R.id.main_text, INTRO);
             mLiveCard.setViews(aRV);
+            
+            //Push card to Timeline
             Intent mIntent = new Intent(this, MainActivity.class);
             mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             mLiveCard.setAction(PendingIntent.getActivity(this, 0, mIntent, 0));
@@ -59,6 +62,11 @@ public class MainService extends Service {
         } 
         return START_STICKY;
     }
+	
+	@Override
+	public IBinder onBind(Intent intent) {
+		return mBinder ;
+	}
 	
 	@Override
 	public void onDestroy() {
@@ -71,8 +79,5 @@ public class MainService extends Service {
         super.onDestroy();
 	}
 
-	@Override
-	public IBinder onBind(Intent intent) {
-		return mBinder ;
-	}
+
 }
