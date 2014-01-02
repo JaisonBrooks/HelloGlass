@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/main_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-12px"
+            android:background="@android:color/black"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/activity_landscape_base"
+            android:paddingLeft="@dimen/activity_portrait_base"
+            android:paddingRight="@dimen/activity_portrait_base"
+            android:paddingTop="@dimen/activity_landscape_base"
+            android:text="@string/app_activity_welcome"
+            android:textColor="@color/holo_purple" >
+
+</TextView>
+</FrameLayout>
